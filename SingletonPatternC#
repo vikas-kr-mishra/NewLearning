@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DesignPattern
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // instantiating Singleton class with variable x 
+
+            //var w = new Singleton();
+
+            Singleton x = Singleton.getInstance();
+
+            // instantiating Singleton class with variable y 
+            Singleton y = Singleton.getInstance();
+            
+
+            // changing variable of instance x 
+            //x.s = (x.s).toUpperCase();
+
+            Console.WriteLine("String from x is " + x.s);
+            Console.WriteLine("String from y is " + y.s);
+            //Console.Read();
+
+            
+        }
+    }
+    class Singleton
+    {
+        private static Singleton single_instance;
+
+        public String s;
+
+        // private constructor restricted to this class only 
+        private Singleton()
+        {
+            s = "Hello there, I am Singleton";
+        }
+
+        // static method to create instance of Singleton class 
+        public static Singleton getInstance()
+        {
+            if (single_instance == null)
+            {
+                single_instance = new Singleton();
+            }
+            else
+            {
+               // single_instance= single_instance;
+            }
+
+            return single_instance;
+        }
+    }
+}
